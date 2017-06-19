@@ -15,3 +15,26 @@ fun todoTask1(collection: Collection<Int>): Nothing = TODO(
 fun task1(collection: Collection<Int>): String {
     todoTask1(collection)
 }
+
+fun task1Answer(collection: Collection<Int>): String {
+
+    val returnString: StringBuilder = StringBuilder("{") //start off with open braces
+    val collectionIterator: Iterator<Int> = collection.iterator()
+
+    while(collectionIterator.hasNext()) {
+        returnString.append(collectionIterator.next())
+
+        if(collectionIterator.hasNext()) {
+            returnString.append(", ")
+        }
+    }
+
+    returnString.append("}")
+
+    return returnString.toString()
+}
+
+fun main(args: Array<String>) {
+    val intCollection: Collection<Int> = listOf(1, 2, 3, 6, 4, 5)
+    println(task1Answer(intCollection))
+}
